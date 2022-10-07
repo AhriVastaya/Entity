@@ -1,3 +1,4 @@
+from re import I
 from textwrap import indent
 from typing import Type
 
@@ -26,21 +27,42 @@ while GetType(ShiftValue) != 1:
     ShiftValue = input("Provide a valid Shift value: \n")
 ShiftValue = int(ShiftValue)
 
-#Split the InputString in a list containing the elements with an even and uneven index.
+#Splitting the InputString into a list that contains either the elements with an even or odd index.
 #Initialize Lists for the split list.
 EvenChars = []
-UnevenChars = []
-
+OddChars = []
+Index = 0
+#Sorting every element based on it's index.
 for i in InputString:
-    if InputString.index(i) % 2 ==0:
+    #Check if the index of the element is even by cheching the remainder when euclidly dividing by 2.
+    if Index % 2 ==0:
+        #Add it to the list of elements with even indexes.
         EvenChars.append(i)
+    #If the remainder is 1, the index is odd.
     else:
-        UnevenChars.append(i)
+        #Add it to the list of elements with odd indexes.
+        OddChars.append(i)
+    #Increment the index by one to move on to the next element.
+    Index += 1
 
 #Manipulate the characters from the list containing the elements with even indexes by applying a Caesar-encryption to them.
+Index = 0
 for i in EvenChars:
+    #If the element is an integer, there are only 10 possibilities.
     if GetType(i) == 1:
-        break
-    else: 
-        break
-    break
+        #ord(0) = 48, so I subtract it by 48 to make the modulus calculation work.
+        _ord = ord(i) - 48
+        #Shift the ASCII code of the element by the amount defined by the user.
+        _ord += ShiftValue
+        #Take the modulo of 10 to make sure that _ord has a value between 0 and 10.
+        _ord = _ord % 10
+        #Add the 48 back in.
+        _ord = _ord + 48
+    elif GetType(i) == 3:
+        _ord = ord(i) - 97
+        _ord += ShiftValue
+        _ord = _ord % 26
+        _ord = _ord + 97
+    i = chr(_ord)
+    EvenChars[Index] = i
+    Index += 1
