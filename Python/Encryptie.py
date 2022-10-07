@@ -90,4 +90,4 @@ for i in EvenChars:
     try:
         Result += OddChars[Index]
     except ValueError: pass
-print (Result)
+print ("Resultaat: "+Result)
