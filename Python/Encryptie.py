@@ -52,8 +52,11 @@ for i in InputString:
 #Manipulate the characters from the list containing the elements with even indexes by applying a Caesar-encryption to them.
 Index = 0
 for i in EvenChars:
+    #Leave any spaces alone, and do nothing with that element
+    if ord(i) == 32:
+        pass
     #If the element is an integer, there are only 10 possibilities.
-    if GetType(i) == 1:
+    elif GetType(i) == 1:
         #ord(0) = 48, so I subtract it by 48 to make the modulus calculation work.
         _ord = ord(i) - 48
         #Shift the ASCII code of the element by the amount defined by the user.
