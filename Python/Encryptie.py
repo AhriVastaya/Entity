@@ -89,7 +89,7 @@ for i in EvenChars:
     #Try to add the element with the same index as i.
     try:
         Result += OddChars[Index]
-    except ValueError: pass
+    except IndexError: pass
     #Increase the index and move on to the next value.
     Index += 1
 print ("Resultaat: "+Result)
