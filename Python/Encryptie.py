@@ -90,4 +90,6 @@ for i in EvenChars:
     try:
         Result += OddChars[Index]
     except ValueError: pass
+    #Increase the index and move on to the next value.
+    Index += 1
 print ("Resultaat: "+Result)
