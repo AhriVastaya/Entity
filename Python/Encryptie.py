@@ -77,3 +77,17 @@ for i in EvenChars:
     EvenChars[Index] = i
     #Increment the index to move on to the next element.
     Index += 1
+
+#Finally, intertwine the two lists to create a string with the encrypted message.
+#Initialize an empty string.
+Result = ""
+#Loop through the list of elements with an even index. The list of elements with an odd index is either exactly as long or exactly one shorter.
+Index = 0
+for i in EvenChars:
+    #Add the element to the Result-string
+    Result += EvenChars[Index]
+    #Try to add the element with the same index as i.
+    try:
+        Result += OddChars[Index]
+    except ValueError: pass
+print (Result)
