@@ -53,7 +53,7 @@ for i in InputString:
 Index = 0
 for i in EvenChars:
     #Leave any spaces alone, and do nothing with that element
-    if ord(i) == 32:
+    if i == " ":
         pass
     #If the element is an integer, there are only 10 possibilities.
     elif GetType(i) == 1:
