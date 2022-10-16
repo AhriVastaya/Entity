@@ -1,7 +1,3 @@
-from re import I
-from textwrap import indent
-from typing import Type
-
 # Define a method to check a variable for its type.
 def GetType(val):
     #Try all possible type and return a number based on the result (1 = int; 2 = float; 3 = string).
